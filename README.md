@@ -1,4 +1,8 @@
-# cve_manager
+# Run docker container
+
+docker build -t cve_manager_eb:latest .
+
+## cve_manager
 A python script that:
 
   a) parses NIST NVD CVEs, 
