@@ -8,7 +8,13 @@ docker run -itd -e POSTGRES_USER=cve -e POSTGRES_PASSWORD=cve -p 5432:5432 -v /d
 
 ./cve_manager.py -u cve -host 127.0.0.1:5432 -db cvedb -ct
 
-./cve_manager.py -u cve -host 127.0.0.1:5432 -db cvedb -idb -p
+./cve_manager.py -u cve -host 127.0.0.1:5432 -db cvedb -p -idb -csv
+
+./cve_manager.py -u cve -host 127.0.0.1:5432 -db cvedb -cve 2019-2434
+
+
+docker exec -it postgresql bash
+PGPASSWORD=cve psql -U cve
 
 ## cve_manager
 A python script that:
