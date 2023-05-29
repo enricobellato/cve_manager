@@ -2,6 +2,14 @@
 
 docker build -t cve_manager_eb:latest .
 
+docker run -itd -e POSTGRES_USER=cve -e POSTGRES_PASSWORD=cve -p 5432:5432 -v /data:/var/lib/postgresql/data --name postgresql postgres
+
+./cve_manager.py -u cve -host 127.0.0.1:5432 -db cvedb -ow cve -cd
+
+./cve_manager.py -u cve -host 127.0.0.1:5432 -db cvedb -ct
+
+./cve_manager.py -u cve -host 127.0.0.1:5432 -db cvedb -idb -p
+
 ## cve_manager
 A python script that:
 
